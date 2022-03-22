@@ -11,19 +11,13 @@ import {
 } from '@mui/material'
 import { MoreHoriz } from '@mui/icons-material';
 import ModalLink from './ModalLink';
+import MoreInfo from './MoreInfo';
 
 const ITEM_HEIGHT = 48;
 
 const options = ['Excluir item']
 
-export default function HomeCards({ item, data }) {
-    const [anchorEl, setAnchorEl] = useState(null);
-    const open = Boolean(anchorEl);
-
-    const handleClick = (event) => setAnchorEl(event.currentTarget);
-
-    const handleClose = () => setAnchorEl(null);
-    
+export default function HomeCards({ item, data }) {    
     return (
         <Grid
             key={item.id}
@@ -151,49 +145,18 @@ export default function HomeCards({ item, data }) {
                         </Typography>
                     </Box>
                 </Box>
-    
-                <IconButton
-                    aria-label="more"
-                    id="long-button"
-                    aria-controls={open ? 'long-menu' : undefined}
-                    aria-expanded={open ? 'true' : undefined}
-                    aria-haspopup="true"
-                    sx={{
+                
+                <MoreInfo
+                    key={item.id}
+                    item={item}
+                    data={data}
+                    style={{
                         width: 24,
                         height: 24,
                         borderRadius: 50,
-                        backgroundColor: '#dbdbdb',
+                        backgroundColor: '#dbdbdb'
                     }}
-                    onClick={handleClick}
-                >
-                    <MoreHoriz sx={{ width: 24, height: 24 }} />
-                </IconButton>
-                <Menu
-                    id="long-menu"
-                    MenuListProps={{
-                        'aria-labelledby': 'long-button',
-                    }}
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    PaperProps={{
-                        style: {
-                        maxHeight: ITEM_HEIGHT * 4.5,
-                        width: '20ch',
-                        },
-                    }}
-                >
-                    {
-                        options.map((option) => (
-                            <MenuItem
-                                key={option}
-                                selected={option === 'more'}
-                                onClick={handleClose}
-                            >
-                                {option}
-                            </MenuItem>
-                    ))}
-                </Menu>
+                />
             </Box>
         </Grid>
     );
