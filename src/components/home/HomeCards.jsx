@@ -17,7 +17,7 @@ const ITEM_HEIGHT = 48;
 
 const options = ['Excluir item']
 
-export default function HomeCards({ item, data }) {    
+export default function HomeCards({ item, data, setRefresh }) {    
     return (
         <Grid
             key={item.id}
@@ -150,6 +150,7 @@ export default function HomeCards({ item, data }) {
                     key={item.id}
                     item={item}
                     data={data}
+                    setRefresh={setRefresh}
                     style={{
                         width: 24,
                         height: 24,

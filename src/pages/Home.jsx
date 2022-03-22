@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     Avatar,
     Box,
@@ -30,6 +30,11 @@ const data = getData.data;
 export default function Home() {
     const theme = layoutPages();
     const [research, setResearch] = useState([]);
+    const [refresh, setRefresh] = useState(0);
+
+    useEffect(() => {
+        if (refresh !== 0) setRefresh(0);
+    }, [refresh]);
 
     return (
         <>
@@ -90,6 +95,7 @@ export default function Home() {
                                                     key={item.id}
                                                     item={item}
                                                     data={data}
+                                                    setRefresh={setRefresh}
                                                 />
                                             )
                                         } else if (filterType(research, item.type)) {
@@ -98,6 +104,7 @@ export default function Home() {
                                                     key={item.id}
                                                     item={item}
                                                     data={data}
+                                                    setRefresh={setRefresh}
                                                 />
                                             )
                                         }

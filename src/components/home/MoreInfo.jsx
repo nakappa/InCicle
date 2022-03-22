@@ -6,13 +6,20 @@ const options = ['Excluir item'];
 
 const ITEM_HEIGHT = 48;
 
-export default function MoreInfo({ item, data, style }) {
+export default function MoreInfo(props) {
+    const { item, data, setRefresh, style } = props;
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
     const handleClick = (event) => setAnchorEl(event.currentTarget);
 
     const handleClose = () => setAnchorEl(null);
+
+    const handleDelete = () => {
+        const index = data.indexOf(item);
+        if (index > -1) data.splice(index, 1);
+        setRefresh(1);
+    };
 
     return (
         <>
@@ -47,7 +54,7 @@ export default function MoreInfo({ item, data, style }) {
                         <MenuItem
                             key={option}
                             selected={option === 'more'}
-                            onClick={handleClose}
+                            onClick={handleDelete}
                         >
                             {option}
                         </MenuItem>
