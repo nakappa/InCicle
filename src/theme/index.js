@@ -17,7 +17,9 @@ const theme = createTheme({
                 root: {
                     padding: 4,
                     margin: '34px auto !important',
-                    maxWidth: '1206px !important'
+                    maxWidth: '1206px !important',
+
+                    '@media (max-width: 540px)': { width: '95% !important' }
                 }
             }
         },

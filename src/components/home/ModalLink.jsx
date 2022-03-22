@@ -28,7 +28,9 @@ export default function ModalLink({ item }) {
                 sx={{
                     height: 11,
                     margin: '0 4px',
-                    opacity: .75
+                    opacity: .75,
+
+                    '@media (max-width: 414px)': { display: 'none' }
                 }}
             />
 
@@ -79,7 +81,9 @@ export default function ModalLink({ item }) {
                                     color: '#707070',
                                     cursor: 'pointer',
                                     position: 'relative',
-                                    left: '50%'
+                                    left: '50%',
+
+                                    '@media (max-width: 280px)': { left: '46%' }
                                 }}
                             />
                         </Box>

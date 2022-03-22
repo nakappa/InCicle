@@ -1,31 +1,20 @@
 import { useEffect, useState } from 'react';
 import {
-    Avatar,
     Box,
     Button,
-    Checkbox,
     Container,
-    Divider,
-    FormControl,
     Grid,
-    IconButton,
-    InputLabel,
-    ListItemText,
-    Menu,
-    MenuItem,
-    OutlinedInput,
-    Select,
     Typography
 } from '@mui/material';
-import { Add, MoreHoriz } from '@mui/icons-material';
+import { Add } from '@mui/icons-material';
 import Helmet from "react-helmet";
-import layoutPages from '../theme/layoutPages';
-import getData from '../__mocks__/data.json';
-import filterType from '../utils/filterType';
 import FilterCards from '../components/home/FilterCards';
 import HomeCards from '../components/home/HomeCards';
 import BoardCards from '../components/home/BoardCards';
+import filterType from '../utils/filterType';
+import getData from '../__mocks__/data.json';
 import management from '../__mocks__/management.json';
+import layoutPages from '../theme/layoutPages';
 
 const data = getData.data;
 const boards = management.data[0].boards;
@@ -61,6 +50,12 @@ export default function Home() {
                                     display="flex"
                                     justifyContent="space-between"
                                     gap={2}
+                                    sx={{
+                                        '@media (max-width: 514px)': {
+                                            flexDirection: 'column',
+                                            alignItems: 'center'
+                                        }
+                                    }}
                                 >
                                     <Typography fontSize={35} color="secondary">
                                         Endomarketing
@@ -83,7 +78,12 @@ export default function Home() {
                                             variant="contained"
                                             color="ternary"
                                             endIcon={<Add sx={{ ml: 4 }} />}
-                                            sx={{ fontWeight: 'bold', ml: 1 }}
+                                            sx={{
+                                                ml: 1,
+                                                fontWeight: 'bold',
+
+                                                '@media (max-width: 514px)': { display: 'none' }
+                                            }}
                                         >
                                             criar
                                         </Button>
@@ -120,10 +120,22 @@ export default function Home() {
                             xs={12}
                             sm={12}
                             md={4}
+                            sx={{
+                                '@media (max-width: 1023px)': {
+                                    display: 'flex',
+                                    justifyContent: 'space-around',
+                                    alignItems: 'flex-start'
+                                },
+
+                                '@media (max-width: 644px)': {
+                                    flexDirection: 'column',
+                                    alignItems: 'center'
+                                }
+                            }}
                         > 
                             <Box
                                 sx={{
-                                    width: 278,
+                                    maxWidth: 278,
                                     boxSizing: 'border-box',
                                     padding: '28px 22px',
                                     backgroundColor: '#fff2de',
@@ -163,12 +175,15 @@ export default function Home() {
                             <Box
                                 sx={{
                                     mt: 1.5,
-                                    width: 278,
+                                    maxWidth: 278,
                                     borderRadius: 2,
                                     boxSizing: 'border-box',
                                     padding: 1,
                                     boxShadow: '2px 2px 5px #ccc',
-                                    backgroundColor: '#fdfdfd'
+                                    backgroundColor: '#fdfdfd',
+
+                                    '@media (max-width: 1023px)': { mt: 0 },
+                                    '@media (max-width: 644px)': { mt: 2 }
                                 }}
                             >
                                 <Typography

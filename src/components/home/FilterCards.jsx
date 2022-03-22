@@ -46,7 +46,8 @@ export default function FilterCards({ data, research, setResearch }) {
                 sx={{
                     minWidth: 94,
 
-                    '& label': { top: -7 }
+                    '& label': { top: -7 },
+                    '@media (max-width: 514px)': { width: '100%' }
                 }}
             >
                 <InputLabel id="types" color="secondary">TIPO</InputLabel>

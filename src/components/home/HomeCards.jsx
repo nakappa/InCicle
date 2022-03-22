@@ -1,21 +1,12 @@
-import { useState } from 'react';
 import {
     Avatar,
     Box,
     Divider,
     Grid,
-    IconButton,
-    Menu,
-    MenuItem,
     Typography
-} from '@mui/material'
-import { MoreHoriz } from '@mui/icons-material';
+} from '@mui/material';
 import ModalLink from './ModalLink';
 import MoreInfo from './MoreInfo';
-
-const ITEM_HEIGHT = 48;
-
-const options = ['Excluir item']
 
 export default function HomeCards({ item, data, setRefresh }) {    
     return (
@@ -38,7 +29,9 @@ export default function HomeCards({ item, data, setRefresh }) {
                 <Box
                     sx={{
                         display: 'flex',
-                        alignItems: 'center'
+                        alignItems: 'center',
+
+                        '@media (max-width: 425px)': { alignItems: 'flex-start' }
                     }}
                 >
                     <Avatar
@@ -47,7 +40,10 @@ export default function HomeCards({ item, data, setRefresh }) {
                             mr: 2,
                             width: 73,
                             height: 73,
-                            borderRadius: 0
+                            borderRadius: 0,
+
+                            '@media (max-width: 425px)': { width: 50, height: 50 },
+                            '@media (max-width: 315px)': { display: 'none' },
                         }}
                     />
                     <Box sx={{ mt: -.5 }}>
@@ -55,6 +51,10 @@ export default function HomeCards({ item, data, setRefresh }) {
                             fontSize={16}
                             fontWeight="bold"
                             color="secondary"
+                            sx={{
+                                '@media (max-width: 425px)': { width: 250 },
+                                '@media (max-width: 399px)': { width: 160 }
+                            }}
                         >
                             {item.title}
                         </Typography>
@@ -64,7 +64,13 @@ export default function HomeCards({ item, data, setRefresh }) {
                                 mt: .5,
                                 display: 'flex',
                                 flexDirection: 'row',
-                                alignItems: 'center'
+                                alignItems: 'center',
+                                
+                                '@media (max-width: 414px)': {
+                                    flexDirection: 'column',
+                                    alignItems: 'flex-start',
+                                    gap: .5
+                                }
                             }}
                         >
                             <Typography
@@ -99,6 +105,9 @@ export default function HomeCards({ item, data, setRefresh }) {
                                                 fontSize={9}
                                                 fontWeight="light"
                                                 color="secondary"
+                                                sx={{
+                                                    '@media (max-width: 425px)': { ml: 0 }
+                                                }}
                                             >
                                                 {`${item.info.place.toUpperCase()}`}
                                             </Typography>
@@ -111,7 +120,9 @@ export default function HomeCards({ item, data, setRefresh }) {
                                                 sx={{
                                                     height: 11,
                                                     margin: '0 4px',
-                                                    opacity: .75
+                                                    opacity: .75,
+
+                                                    '@media (max-width: 414px)': { display: 'none' }
                                                 }}
                                             />
                                         </>
@@ -140,6 +151,9 @@ export default function HomeCards({ item, data, setRefresh }) {
                             fontSize={13}
                             fontWeight="light"
                             color="secondary"
+                            sx={{
+                                '@media (max-width: 399px)': { textAlign: 'justify' }
+                            }}
                         >
                             {item.description}
                         </Typography>
@@ -155,7 +169,14 @@ export default function HomeCards({ item, data, setRefresh }) {
                         width: 24,
                         height: 24,
                         borderRadius: 50,
-                        backgroundColor: '#dbdbdb'
+                        backgroundColor: '#dbdbdb',
+
+                        
+                        '@media (max-width: 425px)': {
+                            position: 'absolute',
+                            top: '5%',
+                            right: '3%'
+                        }
                     }}
                 />
             </Box>
