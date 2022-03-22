@@ -22,6 +22,7 @@ import Helmet from "react-helmet";
 import layoutPages from '../theme/layoutPages';
 import getData from '../__mocks__/data.json';
 import filterType from '../utils/filterType';
+import FilterCards from '../components/home/FilterCards';
 
 const data = getData.data;
 
@@ -101,62 +102,11 @@ export default function Home() {
                                             justifyContent: 'flex-end'
                                         }}
                                     >
-                                        <FormControl
-                                            sx={{
-                                                minWidth: 94,
-                            
-                                                '& label': { top: -7 }                            
-                                            }}
-                                        >
-                                            <InputLabel id="types" color="secondary">TIPO</InputLabel>
-                                            <Select
-                                                labelId="types"
-                                                id="multiple-checkbox"
-                                                multiple
-                                                color="secondary"
-                                                value={research}
-                                                variant="outlined"
-                                                onChange={handleChange}
-                                                input={
-                                                    <OutlinedInput
-                                                        label="TIPO"
-                                                        sx={{
-                                                            height: 39,
-                                                            backgroundColor: '#fff'
-                                                        }}
-                                                    />
-                                                }
-                                                renderValue={(selected) => {
-                                                    const newValue = [];
-                            
-                                                    selected.forEach(el => {
-                                                        el === 'event'
-                                                            ? newValue.push('evento')
-                                                            : el === 'release'
-                                                                ? newValue.push('comunicado')
-                                                                : newValue.push('publicação')
-                                                    });
-                            
-                                                    return newValue.join(', ');
-                                                }}
-                                                MenuProps={MenuProps}
-                                            >
-                                                {options().map((option) => (
-                                                <MenuItem key={option} value={option}>
-                                                    <Checkbox checked={research.indexOf(option) > -1} color="secondary" />
-                                                    <ListItemText
-                                                        primary={
-                                                            option === 'event'
-                                                                ? 'evento'
-                                                                : option === 'release'
-                                                                    ? 'comunicado'
-                                                                    : 'publicação'
-                                                        }
-                                                    />
-                                                </MenuItem>
-                                                ))}
-                                            </Select>
-                                        </FormControl>
+                                        <FilterCards
+                                            data={data}
+                                            research={research}
+                                            setResearch={setResearch}
+                                        />
 
                                         <Button
                                             variant="contained"
