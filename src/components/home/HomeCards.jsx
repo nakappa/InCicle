@@ -10,6 +10,7 @@ import {
     Typography
 } from '@mui/material'
 import { MoreHoriz } from '@mui/icons-material';
+import ModalLink from './ModalLink';
 
 const ITEM_HEIGHT = 48;
 
@@ -135,32 +136,8 @@ export default function HomeCards({ item, data }) {
                             {
                                 item.type !== 'event'
                                     ? null
-                                    :
-                                        <>
-                                            <Divider
-                                                orientation="vertical"
-                                                variant="middle"
-                                                flexItem
-                                                color="#707070"
-                                                sx={{
-                                                    height: 11,
-                                                    margin: '0 4px',
-                                                    opacity: .75,
-                                
-                                                    '@media (max-width: 425px)': { display: 'none' }
-                                                }}
-                                            />
-                                
-                                            <Typography
-                                                fontSize={9}
-                                                fontWeight="light"
-                                                color="#3489b1"
-                                                textTransform="uppercase"
-                                                sx={{ textDecorationLine: 'underline', cursor: 'pointer' }}
-                                            >
-                                                {`${item.length} confirmados de 15`}
-                                            </Typography>
-                                        </>
+                                    : <ModalLink key={item.id} item={item.invited_people} />
+
                             }
                         </Box>
 

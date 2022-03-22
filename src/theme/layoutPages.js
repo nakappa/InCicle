@@ -9,6 +9,14 @@ const layoutPages = makeStyles((theme) => ({
         display: 'flex',
         minHeight: 'calc(100vh - 65px)',
         justifyContent: 'center'
+    },
+
+    //ModalLink
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: theme.palette.text.ternary,
     }
 }));
 
