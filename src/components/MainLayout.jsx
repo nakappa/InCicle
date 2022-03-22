@@ -1,5 +1,6 @@
 import { styled } from '@mui/material';
 import MainNavbar from './MainNavbar';
+import Home from '../pages/Home';
 
 const MainLayoutRoot = styled('div')(({ theme }) => ({
     backgroundColor: theme.palette.background.default,
@@ -35,7 +36,7 @@ export default function MainLayout() {
             <MainLayoutWrapper>
                 <MainLayoutContainer>
                     <MainLayoutContent>
-                        teste
+                        <Home />
                     </MainLayoutContent>
                 </MainLayoutContainer>
             </MainLayoutWrapper>

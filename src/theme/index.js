@@ -10,6 +10,37 @@ const theme = createTheme({
         xl: 1920
         }
     },
+    
+    components: {
+        MuiContainer: {
+            styleOverrides: {
+                root: {
+                    padding: 4,
+                    margin: '34px auto !important',
+                    maxWidth: '1206px !important'
+                }
+            }
+        },
+
+        MuiTypography: {
+            styleOverrides: {
+                root: {
+                    fontFamily: 'Open Sans',
+                    letterSpacing: .5
+                }
+            }
+        },
+
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    minWidth: 120,
+                    padding: '11px 12px',
+                    height: 38
+                }
+            }
+        }
+    },
 
     palette: {
         background: {
@@ -23,6 +54,14 @@ const theme = createTheme({
         secondary: {
             contrastText: '#fff',
             main: '#707070'
+        },
+        ternary: {
+            contrastText: '#fff',
+            main: '#3489b1',
+        },
+        textField: {
+            contrastText: '#000',
+            main: '#000',
         },
         text: {
             primary: '#000',
