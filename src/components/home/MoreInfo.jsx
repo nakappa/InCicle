@@ -19,6 +19,7 @@ export default function MoreInfo(props) {
         const index = data.indexOf(item);
         if (index > -1) data.splice(index, 1);
         setRefresh(1);
+        handleClose();
     };
 
     return (

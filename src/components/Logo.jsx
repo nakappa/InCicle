@@ -4,7 +4,7 @@ export default function Logo(props) {
             <img
                 style={{ padding: '0' }}
                 alt="Logo"
-                src="/images/InCicle-logo.png"
+                src="/images/InCicle-logo.svg"
                 {...props}
             />
         </div>

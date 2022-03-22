@@ -24,8 +24,11 @@ import getData from '../__mocks__/data.json';
 import filterType from '../utils/filterType';
 import FilterCards from '../components/home/FilterCards';
 import HomeCards from '../components/home/HomeCards';
+import BoardCards from '../components/home/BoardCards';
+import management from '../__mocks__/management.json';
 
 const data = getData.data;
+const boards = management.data[0].boards;
 
 export default function Home() {
     const theme = layoutPages();
@@ -159,7 +162,7 @@ export default function Home() {
 
                             <Box
                                 sx={{
-                                    mt: 2,
+                                    mt: 1.5,
                                     width: 278,
                                     borderRadius: 2,
                                     boxSizing: 'border-box',
@@ -173,10 +176,20 @@ export default function Home() {
                                     color="secondary"
                                     fontWeight="bold"
                                     fontSize={16}
-                                    mb={1.5}
                                 >
                                     Quadros de Gestão à Vista
                                 </Typography>
+                                
+                                {
+                                    boards.map((board, i) => (
+                                        <BoardCards
+                                            key={i}
+                                            item={board}
+                                            data={boards}
+                                            setRefresh={setRefresh}
+                                        />
+                                    ))
+                                }
                             </Box>
                         </Grid>
                     </Grid>
